@@ -24,7 +24,9 @@ export default function RootLayout({ children }) {
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <nav>
           <Link href="/">Home</Link>
-          <Link href="/about">About</Link>
+          <Link href="/locaties">Locaties</Link>
+          <Link href="/stations">stations</Link>
+          <Link href="/beschikbaarheid">beschikbaarheid</Link>
         </nav>
         <main>{children}</main>
       </body>
