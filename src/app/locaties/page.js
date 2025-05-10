@@ -11,7 +11,7 @@ export default function About() {
 
   return (
     <div>
-      <h1 className={styles.title}>Locaties</h1>
+      <h1 className={styles.title}>Beschikbaarheid</h1>
     </div>
   );
 }

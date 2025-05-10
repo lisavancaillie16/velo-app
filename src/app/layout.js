@@ -27,6 +27,7 @@ export default function RootLayout({ children }) {
           <Link href="/locaties">Locaties</Link>
           <Link href="/stations">stations</Link>
           <Link href="/beschikbaarheid">beschikbaarheid</Link>
+          <Link href="/componenten">componenten</Link>
         </nav>
         <main>{children}</main>
       </body>
