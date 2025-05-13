@@ -33,11 +33,13 @@ export default function About() {
           <img className={styles.arrow} src="/pijltje.svg" alt="arrow" />
         </Swiper>
       </div>
+
       <div className={styles.card}>
         <div className={styles.insertcard}>
           <h2 className={styles.h2}>Vind jouw locatie</h2>
           <h3 className={styles.h3}>Dichtsbijzijnde locaties</h3>
           <LocationCard number="2" title="Test" subtitle="Substile" />
+          <LocationCard number="3" title="Test" subtitle="Substile" />
           <LocationCard number="3" title="Test" subtitle="Substile" />
         </div>
       </div>

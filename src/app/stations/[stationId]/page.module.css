@@ -1,3 +1,7 @@
 .title {
   color: green;
 }
+
+.card a {
+  text-decoration: none;
+}
