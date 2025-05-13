@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import useNetwork from '@/data/network';
 import { getDistance } from '@/helpers/get-distance';
 import Link from 'next/link';
+import LocationCard from '@/components/LocationCard/LocationCard';
 
 export default function Home() {
   const [filter, setFilter] = useState('');
@@ -62,7 +63,11 @@ export default function Home() {
       {stations.map((station) => (
         <div key={station.id}>
           <Link href={`/stations/${station.id}`}>
-            {station.name}: {station.distance}km
+            <LocationCard
+              title={station.name || 'Unknown Station'} // Fallback for missing name
+              subtitle={station.extra?.address || 'Address not available'} // Fallback for missing address
+              free_bike={station.free_bikes || 0} // Fallback for missing free bikes
+            />
           </Link>
         </div>
       ))}

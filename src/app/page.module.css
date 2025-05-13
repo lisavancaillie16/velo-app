@@ -23,11 +23,18 @@
   height: auto;
 }
 
+.or {
+  color: #edffeb;
+  font-family: montserrat;
+  font-weight: 600;
+  font-size: 16px;
+}
+
 .buttons {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 15px; /* space between buttons */
+  gap: 10px; /* space between buttons */
   background: linear-gradient(180deg, #40d284 0%, #80e273 100%);
   padding: 40px;
   margin-top: -5px;

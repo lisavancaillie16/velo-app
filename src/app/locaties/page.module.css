@@ -1,3 +1,65 @@
-.title {
-  color: blue;
+.swiper {
+  margin: 20px;
+}
+
+.h2 {
+  color: #1a3f62;
+  font-family: montserrat;
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+.logo {
+  width: 100px;
+  margin-bottom: 1rem;
+  margin-left: 40%;
+}
+
+.slideContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.locationTitle {
+  font-weight: bold;
+  font-size: 1.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.address {
+  color: gray;
+  margin-bottom: 0.5rem;
+}
+
+.pin {
+  width: 24px;
+  margin-bottom: 1rem;
+}
+
+.image {
+  width: 150px;
+  height: auto;
+}
+
+.arrow {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.card {
+  border-radius: 20px 20px 0px 0px;
+  background: #fffffb;
+  box-shadow: -2px -2px 14.7px 0px rgba(0, 0, 0, 0.1);
+  height: 40vh;
+}
+
+.insertcard {
+  margin: 40px;
 }

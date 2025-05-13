@@ -3,7 +3,6 @@
 import styles from './page.module.css';
 import useNetwork from '@/data/network';
 import { useParams } from 'next/navigation';
-import StationImage from '@/components/StationImage';
 
 export default function Station() {
   const { network, isLoading, isError } = useNetwork();
@@ -20,7 +19,7 @@ export default function Station() {
     <div>
       <h1 className={styles.title}>{station.name}</h1>
       <p>{station.free_bikes}</p>
-      <StationImage station={station} />
+      <p>{station.empty_slots}</p>
     </div>
   );
 }

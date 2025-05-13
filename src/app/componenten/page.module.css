@@ -1,12 +1,3 @@
 .title {
   color: blue;
 }
-.logo {
-  width: 100px;
-  height: auto; /* keeps aspect ratio */
-}
-
-.homebike {
-  width: 300px;
-  height: auto;
-}

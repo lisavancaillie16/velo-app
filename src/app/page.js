@@ -20,6 +20,7 @@ export default function About() {
         <a href="/locaties">
           <button className={styles.button}>Vind jouw Velo</button>
         </a>
+        <h2 className={styles.or}>or</h2>
         <a href="/beschikbaarheid">
           <button className={styles.button}>Beschikbaarheid</button>
         </a>
