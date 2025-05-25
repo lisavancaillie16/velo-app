@@ -57,9 +57,28 @@ export default function Home() {
   }
 
   return (
-    <div>
-      <h1 className={styles.title}>Stations</h1>
-      <input type="text" value={filter} onChange={handleFilterChange} />
+    <div className={styles.body}>
+      <img className={styles.logo} src="/logovelo.png" alt="logo" />
+      <h1 className={styles.title}>Kies jouw station</h1>
+      <div className={styles.inputWrapper}>
+        <img
+          src="/search.png"
+          alt="Search Icon"
+          className={styles.searchIcon}
+        />
+        <input
+          type="text"
+          placeholder="Zoek een station"
+          value={filter}
+          onChange={handleFilterChange}
+          className={styles.filterInput}
+        />
+      </div>
+
+      <div className={styles.toggleView}>
+        <img src="/slider.svg" alt="grid" />
+        <img src="/list.svg" alt="list" />
+      </div>
       {stations.map((station) => (
         <div key={station.id}>
           <Link href={`/stations/${station.id}`}>

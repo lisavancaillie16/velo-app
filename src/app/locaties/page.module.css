@@ -1,25 +1,50 @@
-.swiper {
-  margin: 20px;
-}
-
-.h2 {
-  color: #1a3f62;
-  font-family: montserrat;
-  font-size: 20px;
+.pageContainer {
+  position: relative;
+  overflow-x: hidden;
+  background-color: #fffef9;
 }
 
 .logo {
-  width: 100px;
-  margin-bottom: 1rem;
-  margin-left: 40%;
+  width: 50px;
+  height: auto;
+  margin-left: 35vw;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.locationTitle {
+  color: #1a3f62;
+  font-family: montserrat;
+  font-size: 20px;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.address {
+  color: #1a3f62;
+  font-family: montserrat;
+  font-size: 16px;
+  text-align: center;
+}
+
+.swiper {
+  position: relative;
+  z-index: 2;
+  padding-bottom: 40px;
 }
 
 .slideContent {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 20px;
 }
 
+.imageBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .locationTitle {
   font-weight: bold;
   font-size: 1.25rem;
@@ -52,20 +77,156 @@
   z-index: 10;
 }
 
+/* Grass image styles */
+.grasWrapper {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  overflow: hidden;
+  margin-top: -80px; /* pull grass upwards */
+}
+
+.gras {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+/* Card that overlaps the grass slightly */
 .card {
+  position: relative;
+  z-index: 3;
   border-radius: 20px 20px 0px 0px;
   background: #fffffb;
   box-shadow: -2px -2px 14.7px 0px rgba(0, 0, 0, 0.1);
-  height: 40vh;
+  height: auto;
+  padding-bottom: 80px;
+  margin-top: -50px; /* pull card upwards */
 }
 
 .card .insertcard {
-  padding-top: 20px;
-  margin: 40px;
+  padding-top: 40px;
+  margin: 24px;
+}
+
+.h2 {
+  color: #1a3f62;
+  font-family: montserrat;
+  font-size: 20px;
+  font-weight: 700;
 }
 
 .h3 {
   font-family: montserrat;
   font-size: 14px;
   color: #1a3f62;
+  margin-top: 20px;
+}
+
+/* Optional: styling for toggle view icons */
+.toggleView {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+@media (min-width: 768px) {
+  .logo {
+    width: 80px;
+    margin-left: 0;
+    margin: 20px auto 40px auto;
+    display: block;
+  }
+
+  .slideContent {
+    flex-direction: column; /* Keeps content stacked vertically */
+    align-items: center; /* Centers content horizontally */
+    text-align: center; /* Optional, for alignment */
+  }
+
+  .locationTitle {
+    font-size: 28px;
+    margin-top: 60px;
+  }
+
+  .address {
+    font-size: 18px;
+  }
+
+  .image {
+    width: 200px;
+  }
+
+  .slideContent {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px; /* optional spacing */
+  }
+
+  .imageBlock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .pin {
+    width: 32px;
+  }
+
+  .arrow {
+    width: 32px;
+    height: 32px;
+    right: 24px;
+  }
+
+  .card .insertcard {
+    margin: 48px;
+    padding-top: 60px;
+  }
+
+  .h2 {
+    font-size: 28px;
+  }
+
+  .h3 {
+    font-size: 16px;
+  }
+
+  .toggleView {
+    justify-content: flex-end;
+    margin-right: 48px;
+  }
+
+  .gras {
+    width: 80%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .logo {
+    width: 100px;
+  }
+
+  .image {
+    width: 250px;
+  }
+
+  .card .insertcard {
+    margin: 60px;
+  }
+
+  .slideContent {
+    gap: 64px;
+  }
+
+  .h2 {
+    font-size: 32px;
+  }
+
+  .h3 {
+    font-size: 18px;
+  }
 }

@@ -1,7 +1,68 @@
+.body {
+  margin: 40px;
+}
 .title {
-  color: red;
+  color: #1a3f62;
+  font-family: montserrat;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.logo img {
+  text-align: center;
+}
+
+.logo {
+  width: 50px;
+  height: auto; /* keeps aspect ratio */
+  margin-left: 35vw;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+/* Optional: styling for toggle view icons */
+.toggleView {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .card a {
   text-decoration: none;
+}
+
+.name {
+  text-decoration: none;
+}
+
+.filterInput {
+  padding-left: 40px; /* Add padding to make space for the icon */
+  width: 80%;
+  height: 40px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  font-size: 14px;
+  border: 2px solid #ccc;
+  font-family: montserrat;
+}
+
+.filterInput:focus {
+  outline: none;
+  border-color: #0070f3;
+  box-shadow: 0 0 5px rgba(0, 112, 243, 0.5);
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 10px;
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
 }

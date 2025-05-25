@@ -5,12 +5,14 @@
 .card a {
   text-decoration: none;
 }
-
+.subtitle {
+  text-decoration: none;
+}
 .card {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 80%;
+  width: 100%;
   background-color: white;
   padding: 16px;
   border-radius: 12px;
@@ -35,7 +37,7 @@
   font-style: normal;
   font-weight: 700;
   line-height: 20px; /* 142.857% */
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 .subtitle {

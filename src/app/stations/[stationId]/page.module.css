@@ -1,7 +1,26 @@
+.body {
+  margin: 20px;
+  background-color: #fffffb;
+  border-radius: 20px;
+  background: #fffffb;
+
+  box-shadow: 0px 4px 9.6px 0px rgba(0, 0, 0, 0.1);
+  height: 80vh;
+}
 .title {
-  color: green;
+  color: #1a3f62;
+  font-family: montserrat;
+  font-size: 20px;
 }
 
-.card a {
-  text-decoration: none;
+.logo img {
+  text-align: center;
+}
+
+.logo {
+  width: 50px;
+  height: auto; /* keeps aspect ratio */
+  margin-left: 35vw;
+  margin-top: 20px;
+  margin-bottom: 40px;
 }
