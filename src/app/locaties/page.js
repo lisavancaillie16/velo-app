@@ -4,6 +4,7 @@ import styles from './page.module.css';
 import useNetwork from '@/data/network';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
+import Link from 'next/link';
 import LocationCard from '@/components/LocationCard/LocationCard';
 
 export default function About() {
@@ -77,8 +78,12 @@ export default function About() {
         <div className={styles.insertcard}>
           <h2 className={styles.h2}>Kies jouw station</h2>
           <div className={styles.toggleView}>
-            <img src="/slider.svg" alt="grid" />
-            <img src="/list.svg" alt="list" />
+            <Link href="/locaties">
+              <img src="/slider.svg" alt="grid" style={{ cursor: 'pointer' }} />
+            </Link>
+            <Link href="/stations">
+              <img src="/list.svg" alt="list" style={{ cursor: 'pointer' }} />
+            </Link>
           </div>
           <h3 className={styles.h3}>Dichtsbijzijnde locaties</h3>
           <LocationCard

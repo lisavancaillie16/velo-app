@@ -5,9 +5,6 @@
 .card a {
   text-decoration: none;
 }
-.subtitle {
-  text-decoration: none;
-}
 .card {
   display: flex;
   justify-content: space-between;
@@ -44,6 +41,7 @@
   font-size: 14px;
   color: #8f8c8c;
   margin-top: 4px;
+  font-family: Montserrat;
 }
 
 .arrow {
@@ -51,4 +49,49 @@
   height: 20px;
   margin-left: 8px;
   color: #80e273;
+}
+
+.free_bikes {
+  font-size: 14px;
+  color: #1a3f62;
+  font-family: Montserrat;
+  font-weight: 600;
+}
+
+.empty_slots {
+  font-size: 14px;
+  color: #1a3f62;
+  font-family: Montserrat;
+  font-weight: 600;
+}
+
+.bikeIcon {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+}
+
+.slotsIcon {
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
+
+.bikeInfo {
+  display: flex;
+  gap: 16px; /* Adjust spacing between free bikes and empty slots */
+  align-items: center;
+}
+
+.free_bikes,
+.empty_slots {
+  display: flex;
+  align-items: center;
+}
+
+.bikeIcon,
+.slotsIcon {
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
 }

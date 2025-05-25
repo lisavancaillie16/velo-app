@@ -7,7 +7,7 @@
 .logo {
   width: 50px;
   height: auto;
-  margin-left: 35vw;
+  margin-left: 50vw;
   margin-top: 20px;
   margin-bottom: 40px;
 }
@@ -51,11 +51,6 @@
   margin-bottom: 0.25rem;
 }
 
-.address {
-  color: gray;
-  margin-bottom: 0.5rem;
-}
-
 .pin {
   width: 24px;
   margin-bottom: 1rem;
@@ -83,7 +78,7 @@
   z-index: 1;
   width: 100%;
   overflow: hidden;
-  margin-top: -80px; /* pull grass upwards */
+  margin-top: -100px; /* pull grass upwards */
 }
 
 .gras {
@@ -160,10 +155,11 @@
   }
 
   .slideContent {
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: center;
     align-items: center;
-    text-align: center;
-    gap: 16px; /* optional spacing */
+    text-align: left;
+    gap: 64px;
   }
 
   .imageBlock {
@@ -205,28 +201,41 @@
   }
 }
 
-@media (min-width: 1024px) {
-  .logo {
-    width: 100px;
+@media (min-width: 768px) {
+  .slideContent {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px; /* optional spacing */
+  }
+
+  .imageBlock {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .pin {
+    width: 32px;
+    margin-bottom: -12px;
   }
 
   .image {
     width: 250px;
   }
 
-  .card .insertcard {
-    margin: 60px;
+  .grasWrapper {
+    width: 50%;
+    margin-left: 35vw;
   }
 
-  .slideContent {
-    gap: 64px;
+  .gras {
+    width: 50%;
   }
 
-  .h2 {
-    font-size: 32px;
-  }
-
-  .h3 {
-    font-size: 18px;
+  .card {
+    margin-top: -110px; /* Adjust as needed */
+    padding-bottom: 60px; /* Adjust as needed */
+    width: 80vw;
+    margin-left: 10vw;
   }
 }

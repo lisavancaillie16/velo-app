@@ -27,7 +27,7 @@ export default function Station() {
 
         const calculateDistance = (lat1, lon1, lat2, lon2) => {
           const toRad = (value) => (value * Math.PI) / 180;
-          const R = 6371; // Earth's radius in km
+          const R = 6371; // km
           const dLat = toRad(lat2 - lat1);
           const dLon = toRad(lon2 - lon1);
           const a =
@@ -37,7 +37,7 @@ export default function Station() {
               Math.sin(dLon / 2) *
               Math.sin(dLon / 2);
           const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-          return R * c; // Distance in km
+          return R * c;
         };
 
         const calculatedDistance = calculateDistance(
@@ -46,27 +46,58 @@ export default function Station() {
           stationLat,
           stationLon
         );
-        setDistance(calculatedDistance.toFixed(2)); // Round to 2 decimal places
+        setDistance(calculatedDistance.toFixed(2));
       });
     }
   }, [station]);
 
   const fullCapacity = station.free_bikes + station.empty_slots;
-  const freePercentage = ((station.free_bikes / fullCapacity) * 100).toFixed(2);
 
   return (
-    <div className={styles.body}>
+    <div className={styles.container}>
       <img className={styles.logo} src="/logovelo.png" alt="logo" />
-      <h1 className={styles.title}>{station.name}</h1>
-      <h2 className={styles.subtitle}>{station.extra?.address}</h2>
-      <p>Free Bikes: {station.free_bikes}</p>
-      <p>Empty Slots: {station.empty_slots}</p>
-      <p>Full Capacity: {fullCapacity}</p>
-      {distance !== null ? (
-        <p>Distance from your location: {distance} km</p>
-      ) : (
-        <p>Calculating distance...</p>
-      )}
+
+      <div className={styles.body}>
+        <h1 className={styles.title}>{station.name}</h1>
+        <h2 className={styles.subtitle}>{station.extra?.address}</h2>
+        {distance && (
+          <p className={styles.distance}>
+            <img src="/pin.svg" alt="pin" className={styles.icon} />
+            Nog {distance} km van jouw locatie
+          </p>
+        )}
+        <div className={styles.stats}>
+          <div className={styles.card}>
+            <img
+              src="/pedal_bike.svg"
+              alt="bike icon"
+              className={styles.icon}
+            />
+            <p className={styles.number}>{station.free_bikes}</p>
+            <p>fietsen vrij</p>
+          </div>
+
+          <div className={styles.card}>
+            <img src="/slots.svg" alt="slots icon" className={styles.icon} />
+            <p className={styles.number}>{station.empty_slots}</p>
+            <p>lege slots</p>
+          </div>
+        </div>
+
+        <div className={styles.capacity}>
+          <p>
+            {station.free_bikes} van de {fullCapacity} plaatsen bezet
+          </p>
+          <div className={styles.capacityBar}>
+            <div
+              className={styles.capacityFill}
+              style={{
+                width: `${(station.free_bikes / fullCapacity) * 100}%`,
+              }}
+            ></div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

@@ -76,8 +76,12 @@ export default function Home() {
       </div>
 
       <div className={styles.toggleView}>
-        <img src="/slider.svg" alt="grid" />
-        <img src="/list.svg" alt="list" />
+        <Link href="/locaties">
+          <img src="/slider.svg" alt="grid" style={{ cursor: 'pointer' }} />
+        </Link>
+        <Link href="/stations">
+          <img src="/list.svg" alt="list" style={{ cursor: 'pointer' }} />
+        </Link>
       </div>
       {stations.map((station) => (
         <div key={station.id}>
@@ -86,6 +90,7 @@ export default function Home() {
               title={station.name || 'Unknown Station'} // Fallback for missing name
               subtitle={station.extra?.address || 'Address not available'} // Fallback for missing address
               free_bike={station.free_bikes || 0} // Fallback for missing free bikes
+              empty_slots={station.empty_slots || 0} // Fallback for missing empty slots
             />
           </Link>
         </div>
