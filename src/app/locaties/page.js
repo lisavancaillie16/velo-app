@@ -1,5 +1,6 @@
 'use client';
 
+import { useRef, useState } from 'react';
 import styles from './page.module.css';
 import useNetwork from '@/data/network';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -9,6 +10,24 @@ import LocationCard from '@/components/LocationCard/LocationCard';
 
 export default function About() {
   const { network, isLoading, isError } = useNetwork();
+  const swiperRef = useRef(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const handleNextSlide = () => {
+    if (swiperRef.current && swiperRef.current.swiper) {
+      swiperRef.current.swiper.slideNext();
+    }
+  };
+
+  const handlePrevSlide = () => {
+    if (swiperRef.current && swiperRef.current.swiper) {
+      swiperRef.current.swiper.slidePrev();
+    }
+  };
+
+  const handleSlideChange = (swiper) => {
+    setCurrentSlide(swiper.activeIndex);
+  };
 
   if (isLoading) return <div>Loading...</div>;
   if (isError) return <div>Error</div>;
@@ -20,8 +39,13 @@ export default function About() {
       </div>
 
       <div className={styles.swiper}>
-        <Swiper spaceBetween={50} slidesPerView={1}>
-          {/* Slide 1 - Mas */}
+        <Swiper
+          ref={swiperRef}
+          spaceBetween={50}
+          slidesPerView={1}
+          onSlideChange={handleSlideChange}
+        >
+          {/* Your slides remain the same */}
           <SwiperSlide>
             <div className={styles.slideContent}>
               <div className={styles.textBlock}>
@@ -36,7 +60,6 @@ export default function About() {
             </div>
           </SwiperSlide>
 
-          {/* Slide 2 - AP Ellermanstraat */}
           <SwiperSlide>
             <div className={styles.slideContent}>
               <p className={styles.locationTitle}>AP Ellermanstraat</p>
@@ -50,7 +73,6 @@ export default function About() {
             </div>
           </SwiperSlide>
 
-          {/* Slide 3 - Centraal Station */}
           <SwiperSlide>
             <div className={styles.slideContent}>
               <p className={styles.locationTitle}>Centraal Station</p>
@@ -63,13 +85,29 @@ export default function About() {
               />
             </div>
           </SwiperSlide>
-
-          {/* Swiper arrow */}
-          <img className={styles.arrow} src="/pijltje.svg" alt="arrow" />
         </Swiper>
+
+        {/* Navigation arrows - conditional rendering */}
+        {currentSlide > 0 && (
+          <img
+            className={styles.arrowLeft}
+            src="/pijltje.svg"
+            alt="previous arrow"
+            onClick={handlePrevSlide}
+          />
+        )}
+
+        {currentSlide < 2 && (
+          <img
+            className={styles.arrow}
+            src="/pijltje.svg"
+            alt="next arrow"
+            onClick={handleNextSlide}
+          />
+        )}
       </div>
 
-      {/* Wavy grass image right above card */}
+      {/* Rest of your component remains the same */}
       <div className={styles.grasWrapper}>
         <img className={styles.gras} src="/gras.png" alt="gras" />
       </div>

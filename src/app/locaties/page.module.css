@@ -31,6 +31,8 @@
   position: relative;
   z-index: 2;
   padding-bottom: 40px;
+  width: 100%;
+  height: auto; /* or a specific height like 300px */
 }
 
 .slideContent {
@@ -70,6 +72,40 @@
   height: 24px;
   cursor: pointer;
   z-index: 10;
+}
+
+.arrow:hover {
+  opacity: 0.7;
+}
+
+.arrowLeft {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%) rotate(180deg);
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.arrowLeft:hover {
+  opacity: 0.7;
+}
+
+.custom-next-button {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.custom-next-button:hover {
+  opacity: 0.7;
 }
 
 /* Grass image styles */
@@ -178,6 +214,12 @@
     right: 24px;
   }
 
+  .arrowLeft {
+    width: 32px;
+    height: 32px;
+    left: 24px;
+  }
+
   .card .insertcard {
     margin: 48px;
     padding-top: 60px;
@@ -237,5 +279,11 @@
     padding-bottom: 60px; /* Adjust as needed */
     width: 80vw;
     margin-left: 10vw;
+  }
+
+  .custom-next-button {
+    width: 32px;
+    height: 32px;
+    right: 24px;
   }
 }

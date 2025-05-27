@@ -12,6 +12,15 @@ export default function Home() {
   const [location, setLocation] = useState({});
   const { network, isLoading, isError } = useNetwork();
 
+  // set filter on start from query param location
+  useEffect(() => {
+    const query = new URLSearchParams(window.location.search);
+    const locationQuery = query.get('location');
+    if (locationQuery) {
+      setFilter(locationQuery);
+    }
+  }, []);
+
   // use effect gebruiken om bv iets op te roepen enkel bij opstart van de app
   useEffect(() => {
     if (navigator.geolocation) {
