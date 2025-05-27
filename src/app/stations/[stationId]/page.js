@@ -10,6 +10,10 @@ export default function Station() {
   const params = useParams();
   const [distance, setDistance] = useState(null);
 
+  const station = network?.stations.find(
+    (station) => station.id === params.stationId
+  );
+
   useEffect(() => {
     if (navigator.geolocation && station) {
       navigator.geolocation.getCurrentPosition((position) => {
@@ -46,10 +50,6 @@ export default function Station() {
 
   if (isLoading) return <div>Loading...</div>;
   if (isError) return <div>Error</div>;
-
-  const station = network.stations.find(
-    (station) => station.id === params.stationId
-  );
 
   const fullCapacity = station.free_bikes + station.empty_slots;
 
