@@ -25,7 +25,7 @@ export default function About() {
         <img className={styles.logo} src="/logovelo.png" alt="logo" />
       </div>
       <div className={styles.heroSection}>
-        <h1 className={styles.title}>Let's take a Velo!</h1>
+        <h1 className={styles.title}>{"Let's take a Velo!"}</h1>
         <div className={styles.visualAndSearch}>
           <img className={styles.homebike} src="/homebike.png" alt="homebike" />
           <div className={styles.search}>
