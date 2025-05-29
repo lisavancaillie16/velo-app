@@ -86,10 +86,10 @@ export default function Home() {
 
       <div className={styles.toggleView}>
         <Link href="/locaties">
-          <img src="/slider.svg" alt="grid" style={{ cursor: 'pointer' }} />
+          <img src="/slider1.svg" alt="grid" style={{ cursor: 'pointer' }} />
         </Link>
         <Link href="/stations">
-          <img src="/list.svg" alt="list" style={{ cursor: 'pointer' }} />
+          <img src="/list2.svg" alt="list" style={{ cursor: 'pointer' }} />
         </Link>
       </div>
       {stations.map((station) => (
