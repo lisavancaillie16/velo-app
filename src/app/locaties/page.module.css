@@ -32,7 +32,7 @@
 
 .swiper {
   position: relative;
-  z-index: 3; /* Highest z-index to be on top */
+  z-index: 2; /* Highest z-index to be on top */
   padding-bottom: 40px;
   width: 100%;
   height: auto;
@@ -59,6 +59,12 @@
 .image {
   width: 50%;
   height: auto;
+}
+
+.ellermanImage {
+  width: 70%;
+  height: auto;
+  transform: translateY(15%);
 }
 
 .centraalImage {
@@ -133,7 +139,7 @@
   top: 520px; /* Lowered card position */
   left: 0;
   right: 0;
-  z-index: 2; /* Above grass but below swiper content */
+  z-index: 3; /* Above grass but below swiper content */
   border-radius: 20px 20px 0px 0px;
   background: #fffffb;
   box-shadow: -2px -2px 14.7px 0px rgba(0, 0, 0, 0.1);

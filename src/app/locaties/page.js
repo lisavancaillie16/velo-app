@@ -68,7 +68,7 @@ export default function About() {
               <p className={styles.address}>Ellermanstraat</p>
               <img className={styles.pin} src="/pin.svg" alt="pin" />
               <img
-                className={styles.image}
+                className={styles.ellermanImage}
                 src="/ellerman.png"
                 alt="AP Ellermanstraat"
               />
