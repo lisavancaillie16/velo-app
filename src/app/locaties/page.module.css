@@ -56,19 +56,19 @@
   margin-bottom: 1rem;
 }
 
-.image {
-  width: 50%;
+.masImage {
+  width: 140px;
   height: auto;
 }
 
 .ellermanImage {
-  width: 70%;
+  width: 300px;
   height: auto;
   transform: translateY(15%);
 }
 
 .centraalImage {
-  width: 65%;
+  width: 290px;
   height: auto;
 }
 
@@ -198,8 +198,16 @@
     font-size: 18px;
   }
 
-  .image {
+  .masImage {
     width: 180px;
+  }
+
+  .centraalImage {
+    width: 340px;
+  }
+
+  .ellermanImage {
+    width: 360px;
   }
 
   .imageBlock {
@@ -264,9 +272,5 @@
     width: 32px;
     height: 32px;
     right: 24px;
-  }
-
-  .centraalImage {
-    width: 20%;
   }
 }

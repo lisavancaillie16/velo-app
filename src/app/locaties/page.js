@@ -1,19 +1,62 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import styles from './page.module.css';
 import useNetwork from '@/data/network';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import Link from 'next/link';
 import LocationCard from '@/components/LocationCard/LocationCard';
-import { useRouter } from 'next/navigation'; // Import useRouter
+import { useRouter } from 'next/navigation';
 
 export default function About() {
   const { network, isLoading, isError } = useNetwork();
   const swiperRef = useRef(null);
   const [currentSlide, setCurrentSlide] = useState(0);
-  const router = useRouter(); // Initialize useRouter
+  const router = useRouter();
+
+  const [stationsData, setStationsData] = useState({
+    centraal: { id: null, free_bikes: 0, empty_slots: 0 },
+    mas: { id: null, free_bikes: 0, empty_slots: 0 },
+    ellerman: { id: null, free_bikes: 0, empty_slots: 0 },
+  });
+
+  useEffect(() => {
+    if (network?.stations) {
+      const getStationData = (query) =>
+        network.stations.find((s) =>
+          s.name.toLowerCase().includes(query.toLowerCase())
+        );
+
+      const centraal = getStationData('Centraal Station');
+      const mas = getStationData('Godefriduskaai');
+      const ellerman = getStationData('Ellermanstraat');
+
+      setStationsData({
+        centraal: centraal
+          ? {
+              id: centraal.id,
+              free_bikes: centraal.free_bikes,
+              empty_slots: centraal.empty_slots,
+            }
+          : { id: null, free_bikes: 0, empty_slots: 0 },
+        mas: mas
+          ? {
+              id: mas.id,
+              free_bikes: mas.free_bikes,
+              empty_slots: mas.empty_slots,
+            }
+          : { id: null, free_bikes: 0, empty_slots: 0 },
+        ellerman: ellerman
+          ? {
+              id: ellerman.id,
+              free_bikes: ellerman.free_bikes,
+              empty_slots: ellerman.empty_slots,
+            }
+          : { id: null, free_bikes: 0, empty_slots: 0 },
+      });
+    }
+  }, [network]);
 
   const handleNextSlide = () => {
     if (swiperRef.current && swiperRef.current.swiper) {
@@ -47,7 +90,6 @@ export default function About() {
           slidesPerView={1}
           onSlideChange={handleSlideChange}
         >
-          {/* Your slides remain the same */}
           <SwiperSlide>
             <div className={styles.slideContent}>
               <div className={styles.textBlock}>
@@ -57,7 +99,7 @@ export default function About() {
 
               <div className={styles.imageBlock}>
                 <img className={styles.pin} src="/pin.svg" alt="pin" />
-                <img className={styles.image} src="/mas.png" alt="Mas" />
+                <img className={styles.masImage} src="/mas.png" alt="Mas" />
               </div>
             </div>
           </SwiperSlide>
@@ -89,7 +131,6 @@ export default function About() {
           </SwiperSlide>
         </Swiper>
 
-        {/* Navigation arrows - conditional rendering */}
         {currentSlide > 0 && (
           <img
             className={styles.arrowLeft}
@@ -109,7 +150,6 @@ export default function About() {
         )}
       </div>
 
-      {/* Rest of your component remains the same */}
       <div className={styles.grasWrapper}>
         <img className={styles.gras} src="/gras.png" alt="gras" />
       </div>
@@ -126,21 +166,42 @@ export default function About() {
             </Link>
           </div>
           <h3 className={styles.h3}>Dichtsbijzijnde locaties</h3>
-          <LocationCard
-            number="2"
-            title="Antwerpen Centraal"
-            subtitle="Lange Kievitstraat"
-          />
-          <LocationCard
-            number="3"
-            title="Mas"
-            subtitle="Godefriduskaai - Oostendekaai"
-          />
-          <LocationCard
-            number="3"
-            title="AP Ellermanstraat"
-            subtitle="Ellermanstraat"
-          />
+
+          {stationsData.centraal.id && (
+            <Link href={`/stations/${stationsData.centraal.id}`}>
+              <LocationCard
+                number="1"
+                title="Antwerpen Centraal"
+                subtitle="Lange Kievitstraat"
+                free_bike={stationsData.centraal.free_bikes}
+                empty_slots={stationsData.centraal.empty_slots}
+              />
+            </Link>
+          )}
+
+          {stationsData.mas.id && (
+            <Link href={`/stations/${stationsData.mas.id}`}>
+              <LocationCard
+                number="2"
+                title="Mas"
+                subtitle="Godefriduskaai - Oostendekaai"
+                free_bike={stationsData.mas.free_bikes}
+                empty_slots={stationsData.mas.empty_slots}
+              />
+            </Link>
+          )}
+
+          {stationsData.ellerman.id && (
+            <Link href={`/stations/${stationsData.ellerman.id}`}>
+              <LocationCard
+                number="3"
+                title="AP Ellermanstraat"
+                subtitle="Ellermanstraat"
+                free_bike={stationsData.ellerman.free_bikes}
+                empty_slots={stationsData.ellerman.empty_slots}
+              />
+            </Link>
+          )}
         </div>
       </div>
     </div>
