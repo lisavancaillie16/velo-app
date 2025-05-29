@@ -2,6 +2,7 @@
   position: relative;
   overflow-x: hidden;
   background-color: #fffef9;
+  min-height: 100vh;
 }
 
 .logo {
@@ -18,6 +19,8 @@
   font-size: 20px;
   text-align: center;
   margin-top: 50px;
+  font-weight: bold;
+  margin-bottom: 0.25rem;
 }
 
 .address {
@@ -29,10 +32,10 @@
 
 .swiper {
   position: relative;
-  z-index: 2;
+  z-index: 3; /* Highest z-index to be on top */
   padding-bottom: 40px;
   width: 100%;
-  height: auto; /* or a specific height like 300px */
+  height: auto;
 }
 
 .slideContent {
@@ -46,11 +49,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-.locationTitle {
-  font-weight: bold;
-  font-size: 1.25rem;
-  margin-bottom: 0.25rem;
 }
 
 .pin {
@@ -108,33 +106,34 @@
   opacity: 0.7;
 }
 
-/* Grass image styles */
+/* Grass image styles - positioned behind swiper */
 .grasWrapper {
-  position: relative;
-  z-index: 1;
+  position: absolute;
+  top: 450px; /* Moved grass up a bit */
+  left: 0;
   width: 100%;
+  z-index: 1; /* Behind everything */
   overflow: hidden;
-  margin-top: -100px; /* pull grass upwards */
 }
 
 .gras {
   width: 100%;
   height: auto;
   display: block;
-  margin: 0;
-  padding: 0;
 }
 
-/* Card that overlaps the grass slightly */
+/* Card that overlaps the grass */
 .card {
-  position: relative;
-  z-index: 3;
+  position: absolute;
+  top: 520px; /* Lowered card position */
+  left: 0;
+  right: 0;
+  z-index: 2; /* Above grass but below swiper content */
   border-radius: 20px 20px 0px 0px;
   background: #fffffb;
   box-shadow: -2px -2px 14.7px 0px rgba(0, 0, 0, 0.1);
   height: auto;
   padding-bottom: 80px;
-  margin-top: -50px; /* pull card upwards */
 }
 
 .card .insertcard {
@@ -163,6 +162,7 @@
   margin-top: 10px;
   margin-bottom: 10px;
 }
+
 @media (min-width: 768px) {
   .logo {
     width: 80px;
@@ -172,9 +172,10 @@
   }
 
   .slideContent {
-    flex-direction: column; /* Keeps content stacked vertically */
-    align-items: center; /* Centers content horizontally */
-    text-align: center; /* Optional, for alignment */
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
   }
 
   .locationTitle {
@@ -187,19 +188,10 @@
   }
 
   .image {
-    width: 200px;
-  }
-
-  .slideContent {
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    text-align: left;
-    gap: 64px;
+    width: 180px;
   }
 
   .imageBlock {
-    display: flex;
     flex-direction: column;
     align-items: center;
   }
@@ -220,6 +212,25 @@
     left: 24px;
   }
 
+  /* Grass positioning for desktop */
+  .grasWrapper {
+    top: 490px; /* Moved grass up a bit for desktop */
+    width: 50%;
+    left: 25%; /* Center the grass */
+  }
+
+  .gras {
+    width: 100%;
+  }
+
+  .card {
+    position: absolute;
+    top: 590px; /* Lowered card position for desktop */
+    left: 10vw;
+    width: 80vw;
+    padding-bottom: 60px;
+  }
+
   .card .insertcard {
     margin: 48px;
     padding-top: 60px;
@@ -236,49 +247,6 @@
   .toggleView {
     justify-content: flex-end;
     margin-right: 48px;
-  }
-
-  .gras {
-    width: 80%;
-  }
-}
-
-@media (min-width: 768px) {
-  .slideContent {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 16px; /* optional spacing */
-  }
-
-  .imageBlock {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .pin {
-    width: 32px;
-    margin-bottom: -12px;
-  }
-
-  .image {
-    width: 250px;
-  }
-
-  .grasWrapper {
-    width: 50%;
-    margin-left: 35vw;
-  }
-
-  .gras {
-    width: 50%;
-  }
-
-  .card {
-    margin-top: -110px; /* Adjust as needed */
-    padding-bottom: 60px; /* Adjust as needed */
-    width: 80vw;
-    margin-left: 10vw;
   }
 
   .custom-next-button {
