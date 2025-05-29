@@ -65,7 +65,7 @@ export default function Station() {
   }));
 
   return (
-    <div className={styles.container}>
+    <div className={styles.body}>
       <img className={styles.logo} src="/logovelo.png" alt="logo" />
 
       {/* Back Button */}
@@ -89,10 +89,9 @@ export default function Station() {
             strokeLinejoin="round"
           />
         </svg>
-        Terug
       </button>
 
-      <div className={styles.body}>
+      <div className={styles.container}>
         <h1 className={styles.title}>{station.name}</h1>
         <h2 className={styles.subtitle}>{station.extra?.address}</h2>
         {distance && (

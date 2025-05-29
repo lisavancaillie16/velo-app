@@ -1,16 +1,16 @@
-.pageContainer {
+.body {
   position: relative;
   overflow-x: hidden;
   background-color: #fffef9;
   min-height: 100vh;
+  margin-top: 40px;
 }
 
 .logo {
-  width: 50px;
-  height: auto;
-  margin-left: 50vw;
-  margin-top: 20px;
-  margin-bottom: 40px;
+  width: 60px;
+  height: auto; /* keeps aspect ratio */
+  margin: 20px auto 40px auto;
+  display: block;
 }
 
 .locationTitle {
@@ -57,7 +57,12 @@
 }
 
 .image {
-  width: 150px;
+  width: 50%;
+  height: auto;
+}
+
+.centraalImage {
+  width: 65%;
   height: auto;
 }
 
@@ -253,5 +258,9 @@
     width: 32px;
     height: 32px;
     right: 24px;
+  }
+
+  .centraalImage {
+    width: 20%;
   }
 }

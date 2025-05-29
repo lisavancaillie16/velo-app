@@ -20,7 +20,7 @@ export default function About() {
   };
 
   return (
-    <div>
+    <div className={styles.body}>
       <div>
         <img className={styles.logo} src="/logovelo.png" alt="logo" />
       </div>

@@ -1,19 +1,16 @@
-.container {
+.body {
   position: relative;
-  padding-top: 80px;
+  margin-top: 40px;
 }
 
 .logo {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 70px;
-  z-index: 10;
-  margin-bottom: 50px;
+  width: 60px;
+  height: auto; /* keeps aspect ratio */
+  margin: 20px auto 40px auto;
+  display: block;
 }
 
-.body {
+.container {
   background: #fffffb;
   border-radius: 20px;
   box-shadow: 0px 4px 9.6px rgba(0, 0, 0, 0.1);
@@ -199,17 +196,6 @@
   transition: all 0.2s ease;
   z-index: 20;
   font-family: 'Montserrat', sans-serif;
-}
-
-.backButton:hover {
-  background: rgba(255, 255, 255, 1);
-  transform: translateY(-1px);
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-.backButton:active {
-  transform: translateY(0);
-  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .backButton svg {

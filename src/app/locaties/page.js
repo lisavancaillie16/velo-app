@@ -7,11 +7,13 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import Link from 'next/link';
 import LocationCard from '@/components/LocationCard/LocationCard';
+import { useRouter } from 'next/navigation'; // Import useRouter
 
 export default function About() {
   const { network, isLoading, isError } = useNetwork();
   const swiperRef = useRef(null);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const router = useRouter(); // Initialize useRouter
 
   const handleNextSlide = () => {
     if (swiperRef.current && swiperRef.current.swiper) {
@@ -33,7 +35,7 @@ export default function About() {
   if (isError) return <div>Error</div>;
 
   return (
-    <div className={styles.pageContainer}>
+    <div className={styles.body}>
       <div>
         <img className={styles.logo} src="/logovelo.png" alt="logo" />
       </div>
@@ -79,7 +81,7 @@ export default function About() {
               <p className={styles.address}>Lange Kievitstraat</p>
               <img className={styles.pin} src="/pin.svg" alt="pin" />
               <img
-                className={styles.image}
+                className={styles.centraalImage}
                 src="/centraal.png"
                 alt="Centraal Station"
               />
